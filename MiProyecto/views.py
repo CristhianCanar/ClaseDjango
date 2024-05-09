@@ -1,5 +1,9 @@
 from django.http import HttpResponse
+
 from django.shortcuts import render
+from django.shortcuts import redirect
+
+lenguajes = ["Python", "C++", "PHP"]
 
 # Request: Peticion
 # HttpResponse: Respuesta en HTTP 
@@ -15,7 +19,15 @@ def sumarNumeros(request):
     resultado = "<h1>La suma de los dos números es: %s</h1>" %suma
     return HttpResponse(resultado)
 
-def primeraPlantilla(request):
-    lenguajes = ["Python", "C++", "PHP"]
+def primeraPlantilla(request): 
     return render(request, 'primeraPlantilla.html', {"lenguajes" : lenguajes})
 
+# Vista
+def plantillaAgregarElemento(request):
+    return render(request, 'agregarElemento.html')
+
+# Logica de alamacenamiento
+def agregarElemento(request):
+    nuevo_elemento = request.POST.get('nuevo_elemento')
+    lenguajes.append(nuevo_elemento)
+    return redirect('primera_plantilla')  # Redirecciona a la página principal

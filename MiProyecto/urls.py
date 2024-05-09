@@ -19,10 +19,16 @@ from django.urls import path
 from MiProyecto.views import bienvenida
 from MiProyecto.views import sumarNumeros
 from MiProyecto.views import primeraPlantilla
+from MiProyecto.views import plantillaAgregarElemento
+from MiProyecto.views import agregarElemento
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('bienvenida/', bienvenida),
     path('suma/', sumarNumeros),
-    path('primera_plantilla/', primeraPlantilla),
+    path('primera_plantilla/', primeraPlantilla, name='primera_plantilla'),
+    #Ruta para almacenar el elemento en lista
+    path('plantilla_agregar/', plantillaAgregarElemento, name='plantilla_agregar'),
+    path('agregar_elemento/', agregarElemento, name='agregar_elemento'),
+
 ]

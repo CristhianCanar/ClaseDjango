@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Agregar elemento</title>
+    <style type="text/css">
+        li {
+            color:blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Agregar elemento a la lista de lenguajes</h1>
+    <form method="post" action="{% url 'agregar_elemento' %}">
+        {% csrf_token %}
+        <input type="text" name="nuevo_elemento">
+        <button type="submit">Agregar</button>
+    </form>
+    <a href="{% url 'primera_plantilla'%}" >Primera plantilla</a>
+</body>
+</html>
