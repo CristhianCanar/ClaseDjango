@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Primera plantilla</title>
+    <style type="text/css">
+        li {
+            color:blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Contenido desde plantilla</h1>
+    <ul>
+        {% for lenguaje in lenguajes %}
+            {% if lenguaje == 'Python' %}
+                <li style="color: green;" >{{ lenguaje }}</li>
+            {% else %}
+                <li>{{ lenguaje }}</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</body>
+</html>
